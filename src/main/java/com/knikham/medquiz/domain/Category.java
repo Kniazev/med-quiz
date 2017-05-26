@@ -2,14 +2,20 @@ package com.knikham.medquiz.domain;
 
 import org.aspectj.weaver.patterns.TypePatternQuestions;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Set;
 
 
 public class Category {
+    @Id
     private long id;
     private String title;
 
-    Set<Question> questions;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Question> questions;
 
     public long getId() {
         return id;

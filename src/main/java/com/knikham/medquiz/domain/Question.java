@@ -1,14 +1,21 @@
 package com.knikham.medquiz.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
 import java.util.Set;
 
+
 public class Question {
+    @Id
     private long id;
     private String body;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Answer> answers;
 
+    @JsonIgnore
+    @ManyToMany
     private Category category;
 
     public long getId() {

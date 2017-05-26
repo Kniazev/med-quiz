@@ -1,11 +1,19 @@
 package com.knikham.medquiz.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 
 public class Answer {
+    @Id
     private long id;
     private String body;
     private boolean isRight;
 
+    @JsonIgnore
+    @OneToMany
     private Question question;
 
     public long getId() {
