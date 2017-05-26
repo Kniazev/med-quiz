@@ -1,13 +1,15 @@
 package com.knikham.medquiz.domain;
 
 
+import java.util.Set;
+
 public class Question {
     private long id;
     private String body;
 
-    Set<Answer> answers;
+    private Set<Answer> answers;
 
-    Category category;
+    private Category category;
 
     public long getId() {
         return id;
