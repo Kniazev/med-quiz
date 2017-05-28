@@ -2,15 +2,13 @@ package com.knikham.medquiz.domain;
 
 import org.aspectj.weaver.patterns.TypePatternQuestions;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 
 public class Category {
     @Id
+    @GeneratedValue
     private long id;
     private String title;
 

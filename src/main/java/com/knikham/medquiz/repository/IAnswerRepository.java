@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Set;
 
 
-public interface AnswerRepository extends JpaRepository<Answer, Long> {
+public interface IAnswerRepository extends JpaRepository<Answer, Long> {
     Set<Answer> getAnswerByQuestionId(long id);
 }

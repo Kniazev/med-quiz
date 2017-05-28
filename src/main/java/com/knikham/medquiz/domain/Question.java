@@ -8,6 +8,7 @@ import java.util.Set;
 
 public class Question {
     @Id
+    @GeneratedValue
     private long id;
     private String body;
 

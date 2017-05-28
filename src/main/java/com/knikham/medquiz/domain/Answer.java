@@ -2,12 +2,14 @@ package com.knikham.medquiz.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 
 public class Answer {
     @Id
+    @GeneratedValue
     private long id;
     private String body;
     private boolean isRight;
