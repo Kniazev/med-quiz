@@ -31,6 +31,11 @@ public class QuestionService implements IQuestionService {
     }
 
     @Override
+    public Question findOne(Long id) {
+        return questionRepository.findOne(id);
+    }
+
+    @Override
     public void update(Long id, Question question) {
         Question updatable = questionRepository.getOne(id);
 

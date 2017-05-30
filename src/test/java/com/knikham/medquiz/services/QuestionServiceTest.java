@@ -95,7 +95,7 @@ public class QuestionServiceTest extends AbstractTest {
 
     @Test
     public void testDelete(){
-        questionService.delete(new Long(2));
+        questionService.delete(2L);
 
         List<Question> questions = questionService.findByCategoryTitle("Cardiology");
 
@@ -109,16 +109,18 @@ public class QuestionServiceTest extends AbstractTest {
 
     @Test
     public void testUpdate(){
-        Category category = new Category();
-        category.setTitle("Cardiology");
 
         Question question = new Question();
-        //question.setCategory(category);
         question.setBody("Updated body");
 
         Answer answer = new Answer();
         answer.setBody("Body for updated question.");
 
         questionService.update(2L, question);
+
+        Question afterUpdateQuestion = questionService.findOne(2L);
+
+        logger.info("updated body: " + afterUpdateQuestion.getBody());
+        logger.info(afterUpdateQuestion.getCategory().getTitle());
     }
 }

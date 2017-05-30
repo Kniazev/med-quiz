@@ -35,7 +35,6 @@ public class AnswerService implements IAnswerService{
         Answer updatable = answerRepository.getOne(id);
         updatable.setBody(answer.getBody());
         updatable.setRight(answer.isRight());
-        updatable.setQuestion(answer.getQuestion());
 
         answerRepository.save(updatable);
     }
