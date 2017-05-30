@@ -2,11 +2,13 @@ package com.knikham.medquiz.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 
+@Entity
 public class Answer {
     @Id
     @GeneratedValue
@@ -15,7 +17,7 @@ public class Answer {
     private boolean isRight;
 
     @JsonIgnore
-    @OneToMany
+    @ManyToOne
     private Question question;
 
     public long getId() {

@@ -3,10 +3,14 @@ package com.knikham.medquiz.services;
 import com.knikham.medquiz.domain.Category;
 import com.knikham.medquiz.repository.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
+@Service
+@Transactional
 public class CategoryService implements ICategoryService {
     @Autowired
     private ICategoryRepository categoryRepository;

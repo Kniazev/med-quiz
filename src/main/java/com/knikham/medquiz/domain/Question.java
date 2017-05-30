@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 
+@Entity
 public class Question {
     @Id
     @GeneratedValue
@@ -16,7 +17,7 @@ public class Question {
     private Set<Answer> answers;
 
     @JsonIgnore
-    @ManyToMany
+    @ManyToOne
     private Category category;
 
     public long getId() {

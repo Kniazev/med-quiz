@@ -3,9 +3,11 @@ package com.knikham.medquiz.domain;
 import org.aspectj.weaver.patterns.TypePatternQuestions;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 
+@Entity
 public class Category {
     @Id
     @GeneratedValue
