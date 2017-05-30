@@ -22,9 +22,11 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public void update(String title, Category category) {
-        categoryRepository.findByTitle(title);
+        Category updatable = categoryRepository.findByTitle(title);
 
-        categoryRepository.save(category);
+        updatable.setTitle(category.getTitle());
+
+        categoryRepository.save(updatable);
     }
 
     @Override
