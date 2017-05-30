@@ -5,10 +5,14 @@ import com.knikham.medquiz.domain.Question;
 import com.knikham.medquiz.repository.IAnswerRepository;
 import com.knikham.medquiz.repository.IQuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
 
+@Service
+@Transactional
 public class AnswerService implements IAnswerService{
     @Autowired
     private IQuestionRepository questionRepository;
