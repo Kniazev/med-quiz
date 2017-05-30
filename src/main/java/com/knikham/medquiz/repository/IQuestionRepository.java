@@ -9,5 +9,6 @@ import java.util.List;
 
 
 public interface IQuestionRepository extends JpaRepository<Question, Long>{
+
     List<Question> findByCategoryTitle(String title);
 }

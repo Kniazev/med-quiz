@@ -7,5 +7,6 @@ import java.util.Set;
 
 
 public interface IAnswerRepository extends JpaRepository<Answer, Long> {
+
     Set<Answer> getAnswerByQuestionId(long id);
 }
