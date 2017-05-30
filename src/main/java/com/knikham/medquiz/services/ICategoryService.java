@@ -6,9 +6,9 @@ import java.util.List;
 
 
 public interface ICategoryService {
-    void create();
-    void update();
-    void delete();
+    void create(Category category);
+    void update(String title, Category category);
+    void delete(String title);
     List<Category> findAll();
     Category findCategoryByTitle(String title);
 }

@@ -7,9 +7,9 @@ import java.util.List;
 
 
 public interface IQuestionService {
-    void create();
-    void update();
-    void delete();
+    void create(String title, Question question);
+    void update(Long id, Question question);
+    void delete(Long id);
 
     List<Question> findByCategoryTitle(String title);
 }
