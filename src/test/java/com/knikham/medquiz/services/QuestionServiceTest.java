@@ -16,7 +16,7 @@ import java.util.*;
 
 
 @Transactional
-public class QuestionServiceTest extends AbstractTest {
+public class QuestionServiceTest extends BaseServiceTest {
     @Autowired
     private IAnswerService answerService;
 
@@ -26,52 +26,17 @@ public class QuestionServiceTest extends AbstractTest {
     @Autowired
     private ICategoryService categoryService;
 
-    @Before
-    @Rollback(false)
-    public void setUp(){
-        Category category = new Category();
-        category.setTitle("Cardiology");
-
-        categoryService.create(category);
-
-        Answer answer1 = new Answer();
-        answer1.setBody("Body of answer one");
-        answer1.setRight(true);
-
-        Answer answer2 = new Answer();
-        answer1.setBody("Body of answer two");
-        answer1.setRight(false);
-
-        Answer answer3 = new Answer();
-        answer1.setBody("Body of answer three");
-        answer1.setRight(false);
-
-        Set<Answer> answers = new HashSet<>();
-
-        answers.add(answer1);
-        answers.add(answer2);
-        answers.add(answer3);
-
-        Question question1 = new Question();
-        question1.setCategory(category);
-        question1.setBody("Body of question one");
-        question1.setAnswers(answers);
-
-        Question question2 = new Question();
-        question2.setCategory(category);
-        question2.setBody("Body of question two");
-        question2.setAnswers(answers);
-
-        questionService.create(category.getTitle(), question1);
-        questionService.create(category.getTitle(), question2);
-    }
-
     @Test
     public void testFindByCategory(){
         List<Question> questions = questionService.findByCategoryTitle("Cardiology");
 
         Assert.assertNotNull(questions);
         Assert.assertEquals(2, questions.size());
+
+        for (Question question: questions) {
+            logger.info("Body: " + question.getBody());
+            logger.info("Id: " + question.getId());
+        }
     }
 
     @Test
