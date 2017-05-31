@@ -20,6 +20,15 @@ public class Answer {
     @ManyToOne
     private Question question;
 
+    public Answer() {
+    }
+
+    public Answer(String body, boolean isRight, Question question) {
+        this.body = body;
+        this.isRight = isRight;
+        this.question = question;
+    }
+
     public long getId() {
         return id;
     }

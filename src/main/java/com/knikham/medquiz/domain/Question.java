@@ -13,6 +13,15 @@ public class Question {
     private long id;
     private String body;
 
+    public Question() {
+    }
+
+    public Question(String body, Set<Answer> answers, Category category) {
+        this.body = body;
+        this.answers = answers;
+        this.category = category;
+    }
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Answer> answers;
 

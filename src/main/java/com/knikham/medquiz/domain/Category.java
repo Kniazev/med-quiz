@@ -14,6 +14,14 @@ public class Category {
     private long id;
     private String title;
 
+    public Category() {
+    }
+
+    public Category(String title, Set<Question> questions) {
+        this.title = title;
+        this.questions = questions;
+    }
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Question> questions;
 
