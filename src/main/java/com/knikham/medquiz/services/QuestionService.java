@@ -55,4 +55,9 @@ public class QuestionService implements IQuestionService {
     public List<Question> findByCategoryTitle(String title) {
        return questionRepository.findByCategoryTitle(title);
     }
+
+    @Override
+    public void deleteAll() {
+        questionRepository.deleteAll();
+    }
 }

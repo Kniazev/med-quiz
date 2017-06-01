@@ -45,4 +45,9 @@ public class CategoryService implements ICategoryService {
     public Category findCategoryByTitle(String title) {
         return categoryRepository.findByTitle(title);
     }
+
+    @Override
+    public void deleteAll() {
+        categoryRepository.deleteAll();
+    }
 }

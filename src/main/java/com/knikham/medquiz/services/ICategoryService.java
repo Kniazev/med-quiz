@@ -9,6 +9,7 @@ public interface ICategoryService {
     void create(Category category);
     void update(String title, Category category);
     void delete(String title);
+    void deleteAll();
     List<Category> findAll();
     Category findCategoryByTitle(String title);
 }

@@ -25,6 +25,9 @@ public class BaseServiceTest extends AbstractTest {
     @Before
     @Rollback(false)
     public void setUp(){
+        categoryService.deleteAll();
+        questionService.deleteAll();
+
         Category category = new Category();
         category.setTitle("Cardiology");
 

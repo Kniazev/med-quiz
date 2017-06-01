@@ -67,7 +67,7 @@ public class QuestionServiceTest extends BaseServiceTest {
             logger.info("Id: " + question.getId());
         }
 
-        questionService.delete(1L);
+        questionService.delete(6L);
 
         List<Question> questionsAfterDelete = questionService.findByCategoryTitle("Cardiology");
 
@@ -81,6 +81,12 @@ public class QuestionServiceTest extends BaseServiceTest {
 
     @Test
     public void testUpdate(){
+        List<Question> questionsBefore = questionService.findByCategoryTitle("Cardiology");
+
+        for (Question question: questionsBefore) {
+            logger.info("Body: " + question.getBody());
+            logger.info("Id: " + question.getId());
+        }
 
         Question question = new Question();
         question.setBody("Updated body");
@@ -88,9 +94,9 @@ public class QuestionServiceTest extends BaseServiceTest {
         Answer answer = new Answer();
         answer.setBody("Body for updated question.");
 
-        questionService.update(1L, question);
+        questionService.update(9L, question);
 
-        Question afterUpdateQuestion = questionService.findOne(1L);
+        Question afterUpdateQuestion = questionService.findOne(9L);
 
         logger.info("updated body: " + afterUpdateQuestion.getBody());
         logger.info(afterUpdateQuestion.getCategory().getTitle());
