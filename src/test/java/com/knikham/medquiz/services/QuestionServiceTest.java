@@ -60,16 +60,23 @@ public class QuestionServiceTest extends BaseServiceTest {
 
     @Test
     public void testDelete(){
-        questionService.delete(2L);
+        List<Question> questionsBefore = questionService.findByCategoryTitle("Cardiology");
 
-        List<Question> questions = questionService.findByCategoryTitle("Cardiology");
-
-        for (Question question: questions) {
+        for (Question question: questionsBefore) {
             logger.info("Body: " + question.getBody());
             logger.info("Id: " + question.getId());
         }
 
-        Assert.assertEquals(1, questions.size());
+        questionService.delete(1L);
+
+        List<Question> questionsAfterDelete = questionService.findByCategoryTitle("Cardiology");
+
+        for (Question question: questionsAfterDelete) {
+            logger.info("Body: " + question.getBody());
+            logger.info("Id: " + question.getId());
+        }
+
+        Assert.assertEquals(1, questionsAfterDelete.size());
     }
 
     @Test
@@ -81,9 +88,9 @@ public class QuestionServiceTest extends BaseServiceTest {
         Answer answer = new Answer();
         answer.setBody("Body for updated question.");
 
-        questionService.update(2L, question);
+        questionService.update(1L, question);
 
-        Question afterUpdateQuestion = questionService.findOne(2L);
+        Question afterUpdateQuestion = questionService.findOne(1L);
 
         logger.info("updated body: " + afterUpdateQuestion.getBody());
         logger.info(afterUpdateQuestion.getCategory().getTitle());
