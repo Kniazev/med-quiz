@@ -8,14 +8,17 @@ import com.knikham.medquiz.repository.IQuestionRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
 
 @Transactional
+@RunWith(SpringRunner.class)
 public class QuestionServiceTest extends BaseServiceTest {
     @Autowired
     private IAnswerService answerService;
