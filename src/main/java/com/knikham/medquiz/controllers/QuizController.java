@@ -2,8 +2,6 @@ package com.knikham.medquiz.controllers;
 
 import com.knikham.medquiz.domain.Category;
 import com.knikham.medquiz.domain.Question;
-import com.knikham.medquiz.repository.IAnswerRepository;
-import com.knikham.medquiz.services.IAnswerService;
 import com.knikham.medquiz.services.ICategoryService;
 import com.knikham.medquiz.services.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-import java.util.List;
 
 
 @RestController
@@ -26,7 +23,7 @@ public class QuizController {
     @Autowired
     IQuestionService questionService;
 
-    @RequestMapping(value = "/categories", method = RequestMethod.GET)
+    @RequestMapping(value = "/Categories", method = RequestMethod.GET)
     public ResponseEntity<Collection<Category>> getCategories(){
         Collection<Category> categories = categoryService.findAll();
 
@@ -37,7 +34,7 @@ public class QuizController {
         return new ResponseEntity<Collection<Category>>(categories, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/Qiuz/{title}", method = RequestMethod.GET)
+    @RequestMapping(value = "/Quiz/{title}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Question>> getQuestionByCategory(
             @PathVariable("title") String title){
         Collection<Question> questions = questionService.findByCategoryTitle(title);
