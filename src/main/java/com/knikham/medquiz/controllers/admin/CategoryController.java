@@ -70,17 +70,17 @@ public class CategoryController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    @PutMapping("/{title}/{newTitle")
+    @PutMapping("/{title}/{newTitle}")
     public ResponseEntity<Void> updateCategory(@PathVariable("title") String title,
                                     @PathVariable("newTitle") String newTitle){
         if(title.isEmpty() || newTitle.isEmpty()){
             return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         }
 
-        Category updatable = categoryService.findCategoryByTitle(title);
+        Category updatable = new Category();
         updatable.setTitle(newTitle);
 
-        categoryService.create(updatable);
+        categoryService.update(title, updatable);
 
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

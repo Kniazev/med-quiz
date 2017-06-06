@@ -22,7 +22,7 @@ public class Category {
         this.questions = questions;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Question> questions;
 
     public long getId() {

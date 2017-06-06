@@ -39,6 +39,11 @@ public class QuestionServiceTest extends BaseServiceTest {
         for (Question question: questions) {
             logger.info("Body: " + question.getBody());
             logger.info("Id: " + question.getId());
+
+            for (Answer answer: question.getAnswers()) {
+                logger.info("AnsId: " + answer.getId());
+                logger.info("BodyAns: " + answer.getBody());
+            }
         }
     }
 

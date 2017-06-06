@@ -22,7 +22,7 @@ public class Question {
         this.category = category;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "question")
     private Set<Answer> answers;
 
     @JsonIgnore

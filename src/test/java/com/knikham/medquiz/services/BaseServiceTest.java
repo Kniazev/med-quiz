@@ -26,12 +26,9 @@ public class BaseServiceTest extends AbstractTest {
     @Rollback(false)
     public void setUp(){
         categoryService.deleteAll();
-        questionService.deleteAll();
 
         Category category = new Category();
         category.setTitle("Cardiology");
-
-        categoryService.create(category);
 
         Answer answer1 = new Answer();
         answer1.setBody("Body of answer one");
@@ -61,7 +58,14 @@ public class BaseServiceTest extends AbstractTest {
         question2.setBody("Body of question two");
         question2.setAnswers(answers);
 
-        questionService.create(category.getTitle(), question1);
-        questionService.create(category.getTitle(), question2);
+        Set<Question> questions = new HashSet<>();
+        questions.add(question1);
+        questions.add(question2);
+
+        category.setQuestions(questions);
+
+//        questionService.create(category.getTitle(), question1);
+//        questionService.create(category.getTitle(), question2);
+        categoryService.create(category);
     }
 }
